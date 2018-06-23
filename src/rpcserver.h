@@ -95,7 +95,7 @@ public:
 };
 
 /**
- * GIANT RPC command dispatcher.
+ * CHAREDCOIN RPC command dispatcher.
  */
 class CRPCTable
 {

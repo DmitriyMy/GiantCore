@@ -181,7 +181,7 @@
       <string>Asks</string>
      </property>
     </widget>
-    <widget class="QLabel" name="GIANTSupply">
+    <widget class="QLabel" name="CHAREDCOINSupply">
      <property name="geometry">
       <rect>
        <x>540</x>
@@ -197,7 +197,7 @@
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="GIANTDemand">
+    <widget class="QLabel" name="CHAREDCOINDemand">
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -432,7 +432,7 @@
     <attribute name="title">
      <string>Buy</string>
     </attribute>
-    <widget class="QPushButton" name="BuyGIANT">
+    <widget class="QPushButton" name="BuyCHAREDCOIN">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -442,10 +442,10 @@
       </rect>
      </property>
      <property name="text">
-      <string>Buy GIANT</string>
+      <string>Buy CHAREDCOIN</string>
      </property>
      <property name="icon">
-      <iconset resource="../giant.qrc">
+      <iconset resource="../charedcoin.qrc">
        <normaloff>:/icons/bitcoin</normaloff>:/icons/bitcoin</iconset>
      </property>
     </widget>
@@ -512,7 +512,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>GIANT</string>
+      <string>CHAREDCOIN</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_5">
@@ -1704,10 +1704,10 @@
       </rect>
      </property>
      <property name="text">
-      <string>GIANT</string>
+      <string>CHAREDCOIN</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="UnitsInputGIANT">
+    <widget class="QLineEdit" name="UnitsInputCHAREDCOIN">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -1741,7 +1741,7 @@
       </font>
      </property>
     </widget>
-    <widget class="QPushButton" name="SellGIANTBTN">
+    <widget class="QPushButton" name="SellCHAREDCOINBTN">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -1751,10 +1751,10 @@
       </rect>
      </property>
      <property name="text">
-      <string>Sell GIANT</string>
+      <string>Sell CHAREDCOIN</string>
      </property>
      <property name="icon">
-      <iconset resource="../giant">
+      <iconset resource="../charedcoin">
        <normaloff>:/icons/bitcoin</normaloff>:/icons/bitcoin</iconset>
      </property>
     </widget>
@@ -1777,12 +1777,12 @@
          </font>
         </property>
         <property name="text">
-         <string>GIANT Available:</string>
+         <string>CHAREDCOIN Available:</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="GIANTAvailableLabel">
+       <widget class="QLabel" name="CHAREDCOINAvailableLabel">
         <property name="palette">
          <palette>
           <active>
@@ -2213,7 +2213,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="labelGIANT">
+       <widget class="QLabel" name="labelCHAREDCOIN">
         <property name="font">
          <font>
           <weight>75</weight>
@@ -2221,7 +2221,7 @@
          </font>
         </property>
         <property name="text">
-         <string>GIANT</string>
+         <string>CHAREDCOIN</string>
         </property>
        </widget>
       </item>
@@ -2733,7 +2733,7 @@
       <string>TextLabel</string>
      </property>
     </widget>
-    <widget class="QLabel" name="GIANTBalanceLabel">
+    <widget class="QLabel" name="CHAREDCOINBalanceLabel">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -2762,7 +2762,7 @@
       </font>
      </property>
      <property name="text">
-      <string>GIANT Balance:</string>
+      <string>CHAREDCOIN Balance:</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_12">
@@ -2784,7 +2784,7 @@
       <string>BTC Balance:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="GIANTAvailableLabel_2">
+    <widget class="QLabel" name="CHAREDCOINAvailableLabel_2">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -2813,7 +2813,7 @@
       </font>
      </property>
      <property name="text">
-      <string>GIANT Available:</string>
+      <string>CHAREDCOIN Available:</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_14">
@@ -2832,10 +2832,10 @@
       </font>
      </property>
      <property name="text">
-      <string>GIANT Pending:</string>
+      <string>CHAREDCOIN Pending:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="GIANTPendingLabel">
+    <widget class="QLabel" name="CHAREDCOINPendingLabel">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -2928,7 +2928,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Bittrex GIANT Deposit Address:</string>
+      <string>Bittrex CHAREDCOIN Deposit Address:</string>
      </property>
     </widget>
     <widget class="QPushButton" name="GenDepositBTN">
@@ -2941,10 +2941,10 @@
       </rect>
      </property>
      <property name="text">
-      <string>Generate GIANT Deposit Address</string>
+      <string>Generate CHAREDCOIN Deposit Address</string>
      </property>
      <property name="icon">
-      <iconset resource="../giant.qrc">
+      <iconset resource="../charedcoin.qrc">
        <normaloff>:/icons/bitcoin</normaloff>:/icons/bitcoin</iconset>
      </property>
     </widget>
@@ -3155,7 +3155,7 @@
        <string notr="true">border: 1px solid #61696c;margin-left:4px;</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="btnConvertGIANT">
+     <widget class="QPushButton" name="btnConvertCHAREDCOIN">
       <property name="geometry">
        <rect>
         <x>260</x>
@@ -3206,7 +3206,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="../giant.qrc">:/icons/transaction_1</pixmap>
+       <pixmap resource="../charedcoin.qrc">:/icons/transaction_1</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -3253,7 +3253,7 @@
       <string>Update API Keys</string>
      </property>
      <property name="icon">
-      <iconset resource="../giant.qrc">
+      <iconset resource="../charedcoin.qrc">
        <normaloff>:/icons/bitcoin</normaloff>:/icons/bitcoin</iconset>
      </property>
     </widget>
@@ -3408,7 +3408,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="../giant.qrc"/>
+  <include location="../charedcoin.qrc"/>
  </resources>
  <connections/>
 </ui>

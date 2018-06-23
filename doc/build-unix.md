@@ -1,10 +1,10 @@
 UNIX BUILD NOTES
 ====================
-Some notes on how to build GIANT in Unix.
+Some notes on how to build CHAREDCOIN in Unix.
 
 Note
 ---------------------
-Always use absolute paths to configure and compile giant and the dependencies,
+Always use absolute paths to configure and compile charedcoin and the dependencies,
 for example, when specifying the the path of the dependency:
 
 	../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX
@@ -22,7 +22,7 @@ make
 make install # optional
 ```
 
-This will build giant-qt as well if the dependencies are met.
+This will build charedcoin-qt as well if the dependencies are met.
 
 Dependencies
 ---------------------
@@ -96,12 +96,12 @@ libqrencode (optional) can be installed with:
 
     sudo apt-get install libqrencode-dev
 
-Once these are installed, they will be found by configure and a giant-qt executable will be
+Once these are installed, they will be found by configure and a charedcoin-qt executable will be
 built by default.
 
 Notes
 -----
-The release is built with GCC and then "strip giantd" to strip the debug
+The release is built with GCC and then "strip charedcoind" to strip the debug
 symbols, which reduces the executable size by about 90%.
 
 
@@ -132,7 +132,7 @@ It is recommended to use Berkeley DB 4.8. If you have to build it yourself:
 ```bash
 ALQO_ROOT=$(pwd)
 
-# Pick some path to install BDB to, here we create a directory within the giant directory
+# Pick some path to install BDB to, here we create a directory within the charedcoin directory
 BDB_PREFIX="${ALQO_ROOT}/db4"
 mkdir -p $BDB_PREFIX
 
@@ -190,7 +190,7 @@ Hardening enables the following features:
 
     To test that you have built PIE executable, install scanelf, part of paxutils, and use:
 
-    	scanelf -e ./giantd
+    	scanelf -e ./charedcoind
 
     The output should contain:
      TYPE
@@ -198,13 +198,13 @@ Hardening enables the following features:
 
 * Non-executable Stack
     If the stack is executable then trivial stack based buffer overflow exploits are possible if
-    vulnerable buffers are found. By default, giant should be built with a non-executable stack
+    vulnerable buffers are found. By default, charedcoin should be built with a non-executable stack
     but if one of the libraries it uses asks for an executable stack or someone makes a mistake
     and uses a compiler extension which requires an executable stack, it will silently build an
     executable without the non-executable stack protection.
 
     To verify that the stack is non-executable after compiling use:
-    `scanelf -e ./giantd`
+    `scanelf -e ./charedcoind`
 
     the output should contain:
 	STK/REL/PTL

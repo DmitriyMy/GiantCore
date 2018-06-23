@@ -1,24 +1,24 @@
-bin_PROGRAMS += qt/giant-qt
+bin_PROGRAMS += qt/charedcoin-qt
 EXTRA_LIBRARIES += qt/libbitcoinqt.a
 
-# giant qt core #
+# charedcoin qt core #
 QT_TS = \
-  qt/locale/giant_bg.ts \
-  qt/locale/giant_de.ts \
-  qt/locale/giant_en.ts \
-  qt/locale/giant_es.ts \
-  qt/locale/giant_fi.ts \
-  qt/locale/giant_fr.ts \
-  qt/locale/giant_it.ts \
-  qt/locale/giant_ja.ts \
-  qt/locale/giant_pl.ts \
-  qt/locale/giant_pt.ts \
-  qt/locale/giant_ru.ts \
-  qt/locale/giant_sk.ts \
-  qt/locale/giant_sv.ts \
-  qt/locale/giant_vi.ts \
-  qt/locale/giant_zh_CN.ts \
-  qt/locale/giant_zh_TW.ts
+  qt/locale/charedcoin_bg.ts \
+  qt/locale/charedcoin_de.ts \
+  qt/locale/charedcoin_en.ts \
+  qt/locale/charedcoin_es.ts \
+  qt/locale/charedcoin_fi.ts \
+  qt/locale/charedcoin_fr.ts \
+  qt/locale/charedcoin_it.ts \
+  qt/locale/charedcoin_ja.ts \
+  qt/locale/charedcoin_pl.ts \
+  qt/locale/charedcoin_pt.ts \
+  qt/locale/charedcoin_ru.ts \
+  qt/locale/charedcoin_sk.ts \
+  qt/locale/charedcoin_sv.ts \
+  qt/locale/charedcoin_vi.ts \
+  qt/locale/charedcoin_zh_CN.ts \
+  qt/locale/charedcoin_zh_TW.ts
 
 QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
@@ -98,16 +98,16 @@ BITCOIN_MM = \
   qt/macnotificationhandler.mm
 
 QT_MOC = \
-  qt/giant.moc \
+  qt/charedcoin.moc \
   qt/bitcoinamountfield.moc \
   qt/intro.moc \
   qt/overviewpage.moc \
   qt/rpcconsole.moc
 
-QT_QRC_CPP = qt/qrc_giant.cpp
-QT_QRC = qt/giant.qrc
-QT_QRC_LOCALE_CPP = qt/qrc_giant_locale.cpp
-QT_QRC_LOCALE = qt/giant_locale.qrc
+QT_QRC_CPP = qt/qrc_charedcoin.cpp
+QT_QRC = qt/charedcoin.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_charedcoin_locale.cpp
+QT_QRC_LOCALE = qt/charedcoin_locale.qrc
 
 PROTOBUF_CC = qt/paymentrequest.pb.cc
 PROTOBUF_H = qt/paymentrequest.pb.h
@@ -222,12 +222,12 @@ RES_ICONS = \
   qt/res/icons/tx_output.png \
   qt/res/icons/tx_mined.png \
   qt/res/icons/tx_mn.png \
-  qt/res/icons/unit_giant.png \
-  qt/res/icons/unit_mgiant.png \
-  qt/res/icons/unit_ugiant.png \
-  qt/res/icons/unit_tgiant.png \
-  qt/res/icons/unit_tmgiant.png \
-  qt/res/icons/unit_tugiant.png
+  qt/res/icons/unit_charedcoin.png \
+  qt/res/icons/unit_mcharedcoin.png \
+  qt/res/icons/unit_ucharedcoin.png \
+  qt/res/icons/unit_tcharedcoin.png \
+  qt/res/icons/unit_tmcharedcoin.png \
+  qt/res/icons/unit_tucharedcoin.png
 
 BITCOIN_QT_CPP = \
   qt/bitcoinaddressvalidator.cpp \
@@ -296,7 +296,7 @@ RES_IMAGES = \
   qt/res/images/unchecked.png \
   qt/res/images/checked.png \
   qt/res/images/splash_testnet.png \
-  qt/res/images/giant_logo_horizontal.png \
+  qt/res/images/charedcoin_logo_horizontal.png \
   qt/res/images/downArrow.png \
   qt/res/images/downArrow_small.png \
   qt/res/images/upArrow_small.png \
@@ -312,7 +312,7 @@ RES_CSS = \
 
 RES_MOVIES = $(wildcard $(srcdir)/qt/res/movies/spinner-*.png)
 
-BITCOIN_RC = qt/res/giant-qt-res.rc
+BITCOIN_RC = qt/res/charedcoin-qt-res.rc
 
 BITCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
   -I$(builddir)/qt/forms
@@ -332,68 +332,68 @@ QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:
 # Most files will depend on the forms and moc files as includes. Generate them
 # before anything else.
 $(QT_MOC): $(QT_FORMS_H)
-$(qt_libbitcoinqt_a_OBJECTS) $(qt_giant_qt_OBJECTS) : | $(QT_MOC)
+$(qt_libbitcoinqt_a_OBJECTS) $(qt_charedcoin_qt_OBJECTS) : | $(QT_MOC)
 
 #Generating these with a half-written protobuf header leads to wacky results.
 #This makes sure it's done.
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# giant-qt binary #
-qt_giant_qt_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+# charedcoin-qt binary #
+qt_charedcoin_qt_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
 
-qt_giant_qt_SOURCES = qt/giant.cpp
+qt_charedcoin_qt_SOURCES = qt/charedcoin.cpp
 if TARGET_DARWIN
-  qt_giant_qt_SOURCES += $(BITCOIN_MM)
+  qt_charedcoin_qt_SOURCES += $(BITCOIN_MM)
 endif
 if TARGET_WINDOWS
-  qt_giant_qt_SOURCES += $(BITCOIN_RC)
+  qt_charedcoin_qt_SOURCES += $(BITCOIN_RC)
 endif
-qt_giant_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
+qt_charedcoin_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
 if ENABLE_WALLET
-qt_giant_qt_LDADD += $(LIBBITCOIN_WALLET)
+qt_charedcoin_qt_LDADD += $(LIBBITCOIN_WALLET)
 endif
 if ENABLE_ZMQ
-qt_giant_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+qt_charedcoin_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
-qt_giant_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBBITCOIN_UNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
+qt_charedcoin_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBBITCOIN_UNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1)
-qt_giant_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-qt_giant_qt_LIBTOOLFLAGS = --tag CXX
+qt_charedcoin_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+qt_charedcoin_qt_LIBTOOLFLAGS = --tag CXX
 
 #locale/foo.ts -> locale/foo.qm
 QT_QM=$(QT_TS:.ts=.qm)
 
 .SECONDARY: $(QT_QM)
 
-qt/giantstrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES)
+qt/charedcoinstrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) $(PYTHON) ../share/qt/extract_strings_qt.py $^
 
-translate: qt/giantstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
+translate: qt/charedcoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/giant_en.ts
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/charedcoin_en.ts
 
 $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 	@test -f $(RCC)
 	@test -f $(@D)/$(<F) || cp -f $< $(@D)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name giant_locale $(@D)/$(<F) | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name charedcoin_locale $(@D)/$(<F) | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_CSS) $(RES_MOVIES) $(PROTOBUF_H)
 	@test -f $(RCC)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name giant $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name charedcoin $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
 
 CLEANFILES += $(CLEAN_QT)
 
-giant_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_giant_qt_OBJECTS) qt/giant-qt$(EXEEXT) $(LIBBITCOINQT)
+charedcoin_qt_clean: FORCE
+	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_charedcoin_qt_OBJECTS) qt/charedcoin-qt$(EXEEXT) $(LIBBITCOINQT)
 
-giant_qt : qt/giant-qt$(EXEEXT)
+charedcoin_qt : qt/charedcoin-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)

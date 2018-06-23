@@ -1,0 +1,20 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/charedcoin_bg.qm</file>
+        <file alias="de">locale/charedcoin_de.qm</file>
+        <file alias="en">locale/charedcoin_en.qm</file>
+        <file alias="es">locale/charedcoin_es.qm</file>
+        <file alias="fi">locale/charedcoin_fi.qm</file>
+        <file alias="fr">locale/charedcoin_fr.qm</file>
+        <file alias="it">locale/charedcoin_it.qm</file>
+        <file alias="ja">locale/charedcoin_ja.qm</file>
+        <file alias="pl">locale/charedcoin_pl.qm</file>
+        <file alias="pt">locale/charedcoin_pt.qm</file>
+        <file alias="ru">locale/charedcoin_ru.qm</file>
+        <file alias="sk">locale/charedcoin_sk.qm</file>
+        <file alias="sv">locale/charedcoin_sv.qm</file>
+        <file alias="vi">locale/charedcoin_vi.qm</file>
+        <file alias="zh_CN">locale/charedcoin_zh_CN.qm</file>
+        <file alias="zh_TW">locale/charedcoin_zh_TW.qm</file>
+    </qresource>
+</RCC>

@@ -10,7 +10,7 @@ import operator
 import os
 import sys
 
-OUT_CPP="qt/giantstrings.cpp"
+OUT_CPP="qt/charedcoinstrings.cpp"
 EMPTY=['""']
 
 def parse_po(text):
@@ -74,10 +74,10 @@ f.write("""
 #define UNUSED
 #endif
 """)
-f.write('static const char UNUSED *giant_strings[] = {\n')
+f.write('static const char UNUSED *charedcoin_strings[] = {\n')
 messages.sort(key=operator.itemgetter(0))
 for (msgid, msgstr) in messages:
     if msgid != EMPTY:
-        f.write('QT_TRANSLATE_NOOP("giant-core", %s),\n' % ('\n'.join(msgid)))
+        f.write('QT_TRANSLATE_NOOP("charedcoin-core", %s),\n' % ('\n'.join(msgid)))
 f.write('};\n')
 f.close()

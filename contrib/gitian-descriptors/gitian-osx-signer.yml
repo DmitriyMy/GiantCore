@@ -1,5 +1,5 @@
 ---
-name: "giant-dmg-signer"
+name: "charedcoin-dmg-signer"
 suites:
 - "trusty"
 architectures:
@@ -7,10 +7,10 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/GiantPay/GiantCore"
+- "url": "https://github.com/CharedCoinPay/CharedCoinCore"
   "dir": "signature"
 files:
-- "giant-osx-unsigned.tar.gz"
+- "charedcoin-osx-unsigned.tar.gz"
 script: |
   WRAP_DIR=$HOME/wrapped
   mkdir -p ${WRAP_DIR}
@@ -27,8 +27,8 @@ script: |
     chmod +x ${WRAP_DIR}/${prog}
   done
 
-  UNSIGNED=giant-osx-unsigned.tar.gz
-  SIGNED=giant-osx-signed.dmg
+  UNSIGNED=charedcoin-osx-unsigned.tar.gz
+  SIGNED=charedcoin-osx-signed.dmg
 
   tar -xf ${UNSIGNED}
   OSX_VOLNAME="$(cat osx_volname)"

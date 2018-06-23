@@ -3,7 +3,7 @@
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
 // Copyright (c) 2015-2017 The ALQO developers
-// Copyright (c) 2018 The GIANT developers
+// Copyright (c) 2018 The CHAREDCOIN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -101,15 +101,15 @@ public:
         pchMessageStart[3] = 0x19;
         vAlertPubKey = ParseHex("04d20b9320f2eb1808b01116dd5ada62edff469b609e894c15d5dc73e64f052887a800ba197a63c897ddc6729737dfc0db3ef7a138a47770ad96981d898141cf23");
         nDefaultPort = 40444;
-        bnProofOfWorkLimit = ~uint256(0) >> 20; // GIANT starting difficulty is 1 / 2^12  //20
+        bnProofOfWorkLimit = ~uint256(0) >> 20; // CHAREDCOIN starting difficulty is 1 / 2^12  //20
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 60; // GIANT: 1 day
-        nTargetSpacing = 2 * 60;  // GIANT: 2 minute
+        nTargetTimespan = 1 * 60; // CHAREDCOIN: 1 day
+        nTargetSpacing = 2 * 60;  // CHAREDCOIN: 2 minute
         nLastPOWBlock = 262800;
         nMaturity = 100;
         nMasternodeCountDrift = 20;
@@ -117,7 +117,7 @@ public:
         nModifierUpdateBlock = 1; // we use the version 2 for dmd
         nMaxMoneyOut = 100000000 * COIN;
 
-        const char* pszTimestamp = "This is genesis block for Giant network";
+        const char* pszTimestamp = "This is genesis block for CHAREDCOIN network";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -206,8 +206,8 @@ public:
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 60; // GIANT: 1 day
-        nTargetSpacing = 2 * 60;  // GIANT: 1 minute
+        nTargetTimespan = 1 * 60; // CHAREDCOIN: 1 day
+        nTargetSpacing = 2 * 60;  // CHAREDCOIN: 1 minute
         nLastPOWBlock = 262800;
         nMaturity = 15;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
@@ -227,11 +227,11 @@ public:
 	base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 83);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 18);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 193);
-        // Testnet giant BIP32 pubkeys start with 'DRKV'
+        // Testnet charedcoin BIP32 pubkeys start with 'DRKV'
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x3a)(0x80)(0x61)(0xa0).convert_to_container<std::vector<unsigned char> >();
-        // Testnet giant BIP32 prvkeys start with 'DRKP'
+        // Testnet charedcoin BIP32 prvkeys start with 'DRKP'
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x3a)(0x80)(0x58)(0x37).convert_to_container<std::vector<unsigned char> >();
-        // Testnet giant BIP44 coin type is '1' (All coin's testnet default)
+        // Testnet charedcoin BIP44 coin type is '1' (All coin's testnet default)
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
@@ -277,8 +277,8 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 1;
-        nTargetTimespan = 24 * 60 * 60; // GIANT: 1 day
-        nTargetSpacing = 1 * 60;        // GIANT: 1 minutes
+        nTargetTimespan = 24 * 60 * 60; // CHAREDCOIN: 1 day
+        nTargetSpacing = 1 * 60;        // CHAREDCOIN: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         genesis.nTime = 1509321603;
         genesis.nBits = 0x1e0ffff0;

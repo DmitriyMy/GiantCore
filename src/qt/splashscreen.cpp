@@ -2,7 +2,7 @@
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers 
 // Copyright (c) 2015-2017 The ALQO developers
-// Copyright (c) 2018 The GIANT developers
+// Copyright (c) 2018 The CHAREDCOIN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -35,12 +35,12 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle* networkStyle) 
     float fontFactor = 1.0;
 
     // define text to place
-    QString titleText = tr("GIANT Core");
+    QString titleText = tr("CHAREDCOIN Core");
     QString versionText = tr("v1.0 PINK GECKO");
     QString copyrightTextBtc = QChar(0xA9) + QString(" 2009-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Bitcoin Core developers"));
     QString copyrightTextDash = QChar(0xA9) + QString(" 2014-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Dash Core and PIVX developers"));
     QString copyrightTextALQO = QChar(0xA9) + QString(" 2017-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The ALQO developers"));
-    QString copyrightTextGIANT = QChar(0xA9) + QString(" %1 ").arg(COPYRIGHT_YEAR) + QString(tr("The GIANT developers"));
+    QString copyrightTextCHAREDCOIN = QChar(0xA9) + QString(" %1 ").arg(COPYRIGHT_YEAR) + QString(tr("The CHAREDCOIN developers"));
     QString titleAddText = networkStyle->getTitleAddText();
     QString font = QApplication::font().toString();
 
@@ -72,7 +72,7 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle* networkStyle) 
     pixPaint.drawText(paddingLeft, paddingTop + titleCopyrightVSpace, copyrightTextBtc);
     pixPaint.drawText(paddingLeft, paddingTop + titleCopyrightVSpace + 12, copyrightTextDash);
     pixPaint.drawText(paddingLeft, paddingTop + titleCopyrightVSpace + 24, copyrightTextALQO);
-    pixPaint.drawText(paddingLeft, paddingTop + titleCopyrightVSpace + 36, copyrightTextGIANT);
+    pixPaint.drawText(paddingLeft, paddingTop + titleCopyrightVSpace + 36, copyrightTextCHAREDCOIN);
 
     // draw additional text if special network
     if (!titleAddText.isEmpty()) {

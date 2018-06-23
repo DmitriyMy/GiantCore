@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Copyright (c) 2015-2017 The PIVX developers 
 // Copyright (c) 2015-2017 The ALQO developers
-// Copyright (c) 2018 The GIANT developers
+// Copyright (c) 2018 The CHAREDCOIN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -36,7 +36,7 @@ void SendMoney(const CTxDestination& address, CAmount nValue, CWalletTx& wtxNew,
         throw JSONRPCError(RPC_WALLET_ERROR, strError);
     }
 
-    // Parse GIANT address
+    // Parse CHAREDCOIN address
     CScript scriptPubKey = GetScriptForDestination(address);
 
     // Create and send the transaction
@@ -56,8 +56,8 @@ Value Darksend(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() == 0)
         throw runtime_error(
-            "Darksend <giantaddress> <amount>\n"
-            "giantaddress, reset, or auto (AutoDenominate)"
+            "Darksend <charedcoinaddress> <amount>\n"
+            "charedcoinaddress, reset, or auto (AutoDenominate)"
             "<amount> is a real and will be rounded to the next 0.1" +
             HelpRequiringPassphrase());
 
@@ -78,14 +78,14 @@ Value Darksend(const Array& params, bool fHelp)
 
     if (params.size() != 2)
         throw runtime_error(
-            "Darksend <giantaddress> <amount>\n"
-            "giantaddress, denominate, or auto (AutoDenominate)"
+            "Darksend <charedcoinaddress> <amount>\n"
+            "charedcoinaddress, denominate, or auto (AutoDenominate)"
             "<amount> is a real and will be rounded to the next 0.1" +
             HelpRequiringPassphrase());
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid GIANT address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid CHAREDCOIN address");
 
     // Amount
     CAmount nAmount = AmountFromValue(params[1]);
@@ -141,7 +141,7 @@ Value masternode(const Array& params, bool fHelp)
             "  genkey       - Generate new masternodeprivkey\n"
             "  enforce      - Enforce masternode payments\n"
             "  outputs      - Print masternode compatible outputs\n"
-            "  start        - Start masternode configured in giant.conf\n"
+            "  start        - Start masternode configured in charedcoin.conf\n"
             "  start-alias  - Start single masternode by assigned alias configured in masternode.conf\n"
             "  start-<mode> - Start masternodes configured in masternode.conf (<mode>: 'all', 'missing', 'disabled')\n"
             "  status       - Print masternode status information\n"

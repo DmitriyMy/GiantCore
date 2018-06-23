@@ -2,7 +2,7 @@
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers 
 // Copyright (c) 2015-2017 The ALQO developers
-// Copyright (c) 2018 The GIANT developers
+// Copyright (c) 2018 The CHAREDCOIN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -15,7 +15,7 @@ static const int MODEL_UPDATE_DELAY = 250;
 /* AskPassphraseDialog -- Maximum passphrase length */
 static const int MAX_PASSPHRASE_SIZE = 1024;
 
-/* GIANT GUI -- Size of icons in status bar */
+/* CHAREDCOIN GUI -- Size of icons in status bar */
 static const int STATUSBAR_ICONSIZE = 16;
 
 static const bool DEFAULT_SPLASHSCREEN = true;
@@ -50,9 +50,9 @@ static const int MAX_URI_LENGTH = 255;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 35
 
-#define QAPP_ORG_NAME "GIANT"
-#define QAPP_ORG_DOMAIN "https://giantpay.network"
-#define QAPP_APP_NAME_DEFAULT "GIANT-Qt"
-#define QAPP_APP_NAME_TESTNET "GIANT-Qt-testnet"
+#define QAPP_ORG_NAME "CHAREDCOIN"
+#define QAPP_ORG_DOMAIN "https://charedcoinpay.network"
+#define QAPP_APP_NAME_DEFAULT "CHAREDCOIN-Qt"
+#define QAPP_APP_NAME_TESTNET "CHAREDCOIN-Qt-testnet"
 
 #endif // BITCOIN_QT_GUICONSTANTS_H

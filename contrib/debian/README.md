@@ -1,21 +1,21 @@
 
 Debian
 ====================
-This directory contains files used to package giantd/giant-qt
-for Debian-based Linux systems. If you compile giantd/giant-qt yourself, there are some useful files here.
+This directory contains files used to package charedcoind/charedcoin-qt
+for Debian-based Linux systems. If you compile charedcoind/charedcoin-qt yourself, there are some useful files here.
 
-## giant: URI support ##
+## charedcoin: URI support ##
 
 
-giant-qt.desktop  (Gnome / Open Desktop)
+charedcoin-qt.desktop  (Gnome / Open Desktop)
 To install:
 
-	sudo desktop-file-install giant-qt.desktop
+	sudo desktop-file-install charedcoin-qt.desktop
 	sudo update-desktop-database
 
 If you build yourself, you will either need to modify the paths in
-the .desktop file or copy or symlink your giantqt binary to `/usr/bin`
-and the `../../share/pixmaps/giant128.png` to `/usr/share/pixmaps`
+the .desktop file or copy or symlink your charedcoinqt binary to `/usr/bin`
+and the `../../share/pixmaps/charedcoin128.png` to `/usr/share/pixmaps`
 
-giant-qt.protocol (KDE)
+charedcoin-qt.protocol (KDE)
 

@@ -1,10 +1,10 @@
-GIANT is a universal 3rd generation cryptocurrency that combines the best features of different coins
+CHAREDCOIN is a universal 3rd generation cryptocurrency that combines the best features of different coins
 in order to create an excellent new digital payment asset.
 
 Milli-Second-Transactions with HyperSend.
 Network stability with masternodes, each is secured with a collateral of 1000 GIC. 100% Governance.
 
-For further information visit us at [giantpay.network](https://giantpay.network/)
+For further information visit us at [charedcoinpay.network](https://charedcoinpay.network/)
 
 # Coin Specs
 
@@ -49,9 +49,9 @@ _Proof of Stake will automatically be enabled at block 262801._
 
 # Further information
 
-_For more information check out our whitepaper at [giantpay.network/whitepaper.pdf](https://giantpay.network/whitepaper.pdf)_
+_For more information check out our whitepaper at [charedcoinpay.network/whitepaper.pdf](https://charedcoinpay.network/whitepaper.pdf)_
 
 
-Alternatively we have added a non .pdf Version into our Github. You can find it in the GIANT Github Wiki.
+Alternatively we have added a non .pdf Version into our Github. You can find it in the CHAREDCOIN Github Wiki.
 
-[https://github.com/GiantPay/GiantCore/wiki](https://github.com/GiantPay/GiantCore/wiki)
+[https://github.com/CHAREDCOINPay/CHAREDCOINCore/wiki](https://github.com/CHAREDCOINPay/CHAREDCOINCore/wiki)

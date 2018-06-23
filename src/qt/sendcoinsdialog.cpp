@@ -2,7 +2,7 @@
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers 
 // Copyright (c) 2015-2017 The ALQO developers
-// Copyright (c) 2018 The GIANT developers
+// Copyright (c) 2018 The CHAREDCOIN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -60,7 +60,7 @@ SendCoinsDialog::SendCoinsDialog(QWidget* parent) : QDialog(parent),
     connect(ui->splitBlockCheckBox, SIGNAL(stateChanged(int)), this, SLOT(splitBlockChecked(int)));
     connect(ui->splitBlockLineEdit, SIGNAL(textChanged(const QString&)), this, SLOT(splitBlockLineEditChanged(const QString&)));
 
-    // GIANT specific
+    // CHAREDCOIN specific
     QSettings settings;
     if (!settings.contains("bUseDarKsend"))
         settings.setValue("bUseDarKsend", false);
@@ -866,7 +866,7 @@ void SendCoinsDialog::coinControlChangeEdited(const QString& text)
             ui->labelCoinControlChangeLabel->setText("");
         } else if (!addr.IsValid()) // Invalid address
         {
-            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid GIANT address"));
+            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid CHAREDCOIN address"));
         } else // Valid address
         {
             CPubKey pubkey;

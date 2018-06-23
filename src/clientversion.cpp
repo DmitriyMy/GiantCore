@@ -10,10 +10,10 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both giantd and giant-qt, to make it harder for attackers to
+ * for both charedcoind and charedcoin-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("GIANT Core");
+const std::string CLIENT_NAME("CHAREDCOIN Core");
 
 /**
  * Client version number

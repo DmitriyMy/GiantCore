@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between giant-cli and giantd)
- * of a given instance of the GIANT system.
+ * CBaseChainParams defines the base parameters (shared between charedcoin-cli and charedcoind)
+ * of a given instance of the CHAREDCOIN system.
  */
 class CBaseChainParams
 {

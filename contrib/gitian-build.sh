@@ -17,7 +17,7 @@ osx=true
 SIGNER=
 VERSION=
 commit=false
-url=https://github.com/GiantPay/GiantCore
+url=https://github.com/CharedCoinPay/CharedCoinCore
 proc=2
 mem=2000
 lxc=true
@@ -31,7 +31,7 @@ commitFiles=true
 read -d '' usage <<- EOF
 Usage: $scriptName [-c|u|v|b|s|B|o|h|j|m|] signer version
 
-Run this script from the directory containing the giant, gitian-builder, gitian.sigs, and giant-detached-sigs.
+Run this script from the directory containing the charedcoin, gitian-builder, gitian.sigs, and charedcoin-detached-sigs.
 
 Arguments:
 signer          GPG signer to sign each build assert file
@@ -247,7 +247,7 @@ then
 fi
 
 # Set up build
-pushd ./giant
+pushd ./charedcoin
 git fetch
 git checkout ${COMMIT}
 popd
@@ -256,7 +256,7 @@ popd
 if [[ $build = true ]]
 then
 	# Make output folder
-	mkdir -p ./giant-binaries/${VERSION}
+	mkdir -p ./charedcoin-binaries/${VERSION}
 
 	# Build Dependencies
 	echo ""
@@ -266,7 +266,7 @@ then
 	mkdir -p inputs
 	wget -N -P inputs $osslPatchUrl
 	wget -N -P inputs $osslTarUrl
-	make -C ../giant/depends download SOURCES_PATH=`pwd`/cache/common
+	make -C ../charedcoin/depends download SOURCES_PATH=`pwd`/cache/common
 
 	# Linux
 	if [[ $linux = true ]]
@@ -274,9 +274,9 @@ then
             echo ""
 	    echo "Compiling ${VERSION} Linux"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit giant=${COMMIT} --url giant=${url} ../giant/contrib/gitian-descriptors/gitian-linux.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../giant/contrib/gitian-descriptors/gitian-linux.yml
-	    mv build/out/giant-*.tar.gz build/out/src/giant-*.tar.gz ../giant-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit charedcoin=${COMMIT} --url charedcoin=${url} ../charedcoin/contrib/gitian-descriptors/gitian-linux.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../charedcoin/contrib/gitian-descriptors/gitian-linux.yml
+	    mv build/out/charedcoin-*.tar.gz build/out/src/charedcoin-*.tar.gz ../charedcoin-binaries/${VERSION}
 	fi
 	# Windows
 	if [[ $windows = true ]]
@@ -284,10 +284,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit giant=${COMMIT} --url giant=${url} ../giant/contrib/gitian-descriptors/gitian-win.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../giant/contrib/gitian-descriptors/gitian-win.yml
-	    mv build/out/giant-*-win-unsigned.tar.gz inputs/giant-win-unsigned.tar.gz
-	    mv build/out/giant-*.zip build/out/giant-*.exe ../giant-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit charedcoin=${COMMIT} --url charedcoin=${url} ../charedcoin/contrib/gitian-descriptors/gitian-win.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../charedcoin/contrib/gitian-descriptors/gitian-win.yml
+	    mv build/out/charedcoin-*-win-unsigned.tar.gz inputs/charedcoin-win-unsigned.tar.gz
+	    mv build/out/charedcoin-*.zip build/out/charedcoin-*.exe ../charedcoin-binaries/${VERSION}
 	fi
 	# Mac OSX
 	if [[ $osx = true ]]
@@ -295,10 +295,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit giant=${COMMIT} --url giant=${url} ../giant/contrib/gitian-descriptors/gitian-osx.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../giant/contrib/gitian-descriptors/gitian-osx.yml
-	    mv build/out/giant-*-osx-unsigned.tar.gz inputs/giant-osx-unsigned.tar.gz
-	    mv build/out/giant-*.tar.gz build/out/giant-*.dmg ../giant-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit charedcoin=${COMMIT} --url charedcoin=${url} ../charedcoin/contrib/gitian-descriptors/gitian-osx.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../charedcoin/contrib/gitian-descriptors/gitian-osx.yml
+	    mv build/out/charedcoin-*-osx-unsigned.tar.gz inputs/charedcoin-osx-unsigned.tar.gz
+	    mv build/out/charedcoin-*.tar.gz build/out/charedcoin-*.dmg ../charedcoin-binaries/${VERSION}
 	fi
 	popd
 
@@ -325,27 +325,27 @@ then
 	echo ""
 	echo "Verifying v${VERSION} Linux"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../giant/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../charedcoin/contrib/gitian-descriptors/gitian-linux.yml
 	# Windows
 	echo ""
 	echo "Verifying v${VERSION} Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../giant/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../charedcoin/contrib/gitian-descriptors/gitian-win.yml
 	# Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../giant/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../charedcoin/contrib/gitian-descriptors/gitian-osx.yml
 	# Signed Windows
 	echo ""
 	echo "Verifying v${VERSION} Signed Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../giant/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../charedcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
 	# Signed Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Signed Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../giant/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../charedcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
 	popd
 fi
 
@@ -360,10 +360,10 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../giant/contrib/gitian-descriptors/gitian-win-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../giant/contrib/gitian-descriptors/gitian-win-signer.yml
-	    mv build/out/giant-*win64-setup.exe ../giant-binaries/${VERSION}
-	    mv build/out/giant-*win32-setup.exe ../giant-binaries/${VERSION}
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../charedcoin/contrib/gitian-descriptors/gitian-win-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../charedcoin/contrib/gitian-descriptors/gitian-win-signer.yml
+	    mv build/out/charedcoin-*win64-setup.exe ../charedcoin-binaries/${VERSION}
+	    mv build/out/charedcoin-*win32-setup.exe ../charedcoin-binaries/${VERSION}
 	fi
 	# Sign Mac OSX
 	if [[ $osx = true ]]
@@ -371,9 +371,9 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../giant/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../giant/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    mv build/out/giant-osx-signed.dmg ../giant-binaries/${VERSION}/giant-${VERSION}-osx.dmg
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../charedcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../charedcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    mv build/out/charedcoin-osx-signed.dmg ../charedcoin-binaries/${VERSION}/charedcoin-${VERSION}-osx.dmg
 	fi
 	popd
 

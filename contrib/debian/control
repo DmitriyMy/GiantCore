@@ -1,4 +1,4 @@
-Source: giant
+Source: charedcoin
 Section: utils
 Priority: optional
 Maintainer: Jonas Smedegaard <dr@jones.dk> ***TODO***
@@ -23,10 +23,10 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler
 Standards-Version: 3.9.2
 Homepage:http://gitpay.network/
-Vcs-Git: git://github.com/GiantPay/GiantCore
-Vcs-Browser: http://github.com/GiantPay/GiantCore
+Vcs-Git: git://github.com/CharedCoinPay/CharedCoinCore
+Vcs-Browser: http://github.com/CharedCoinPay/CharedCoinCore
 
-Package: giantd
+Package: charedcoind
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
@@ -39,10 +39,10 @@ Description: peer-to-peer network based digital currency - daemon
  Full transaction history is stored locally at each client.  This
  requires 1+ GB of space, slowly growing.
  .
- This package provides the daemon, giantd, and the CLI tool
- giant-cli to interact with the daemon.
+ This package provides the daemon, charedcoind, and the CLI tool
+ charedcoin-cli to interact with the daemon.
 
-Package: giant-qt
+Package: charedcoin-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI

@@ -64,15 +64,15 @@ bin_PROGRAMS =
 TESTS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += giantd
+  bin_PROGRAMS += charedcoind
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += giant-cli giant-tx
+  bin_PROGRAMS += charedcoin-cli charedcoin-tx
 endif
 
 .PHONY: FORCE
-# giant core #
+# charedcoin core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addrman.h \
@@ -180,7 +180,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between giantd and giant-qt
+# server: shared between charedcoind and charedcoin-qt
 libbitcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(BOOST_CPPFLAGS)
 libbitcoin_server_a_SOURCES = \
   addrman.cpp \
@@ -224,7 +224,7 @@ libbitcoin_zmq_a_SOURCES = \
   zmq/zmqpublishnotifier.cpp
 endif
 
-# wallet: shared between giantd and giant-qt, but only linked
+# wallet: shared between charedcoind and charedcoin-qt, but only linked
 # when wallet enabled
 
 libbitcoin_wallet_a_CFLAGS = -fPIC
@@ -295,7 +295,7 @@ univalue_libbitcoin_univalue_a_SOURCES = \
   univalue/univalue_escapes.h \
   univalue/univalue.h
 
-# common: shared between giantd, and giant-qt and non-server tools
+# common: shared between charedcoind, and charedcoin-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_common_a_SOURCES = \
   allocators.cpp \
@@ -351,7 +351,7 @@ libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-# cli: shared between giant-cli and giant-qt
+# cli: shared between charedcoin-cli and charedcoin-qt
 libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_SOURCES = \
   rpcclient.cpp \
@@ -361,7 +361,7 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-giantd_LDADD = \
+charedcoind_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UNIVALUE) \
@@ -372,40 +372,40 @@ giantd_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-giantd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+charedcoind_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-giantd_LDADD += libbitcoin_wallet.a
+charedcoind_LDADD += libbitcoin_wallet.a
 endif
-giantd_SOURCES = giantd.cpp
+charedcoind_SOURCES = charedcoind.cpp
 #
 
 if TARGET_WINDOWS
-giantd_SOURCES += giantd-res.rc
+charedcoind_SOURCES += charedcoind-res.rc
 endif
 
-giantd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
-giantd_CPPFLAGS = $(BITCOIN_INCLUDES)
-giantd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+charedcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+charedcoind_CPPFLAGS = $(BITCOIN_INCLUDES)
+charedcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 
-# giant-cli binary #
-giant_cli_LDADD = \
+# charedcoin-cli binary #
+charedcoin_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBBITCOIN_UTIL) \
   $(BOOST_LIBS) \
   $(SSL_LIBS) \
   $(CRYPTO_LIBS)
 
-giant_cli_SOURCES = \
-  giant-cli.cpp
+charedcoin_cli_SOURCES = \
+  charedcoin-cli.cpp
 
-giant_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
+charedcoin_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
 
-# giant-tx binary #
-giant_tx_LDADD = \
+# charedcoin-tx binary #
+charedcoin_tx_LDADD = \
   $(LIBBITCOIN_UNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -414,15 +414,15 @@ giant_tx_LDADD = \
   $(BOOST_LIBS) \
   $(CRYPTO_LIBS)
 
-giant_tx_SOURCES = giant-tx.cpp
-giant_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+charedcoin_tx_SOURCES = charedcoin-tx.cpp
+charedcoin_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
-giant_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+charedcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-giant_cli_SOURCES += giant-cli-res.rc
+charedcoin_cli_SOURCES += charedcoin-cli-res.rc
 endif
-giant_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+charedcoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/bitcoinconsensus.h

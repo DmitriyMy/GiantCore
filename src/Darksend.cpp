@@ -1,7 +1,7 @@
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers 
 // Copyright (c) 2015-2017 The ALQO developers
-// Copyright (c) 2018 The GIANT developers
+// Copyright (c) 2018 The CHAREDCOIN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 //
@@ -40,7 +40,7 @@ map<uint256, CDarksendBroadcastTx> mapDarksendBroadcastTxes;
 // Keep track of the active Masternode
 CActiveMasternode activeMasternode;
 
-/* *** BEGIN DARKSEND MAGIC - GIANT **********
+/* *** BEGIN DARKSEND MAGIC - CHAREDCOIN **********
     Copyright (c) 2014-2015, Dash Developers
         eduffield - evan@dashpay.io
         udjinm6   - udjinm6@dashpay.io
@@ -780,9 +780,9 @@ void CDarksendPool::ChargeRandomFees()
 
                 Being that Darksend has "no fees" we need to have some kind of cost associated
                 with using it to stop abuse. Otherwise it could serve as an attack vector and
-                allow endless transaction that would bloat GIANT and make it unusable. To
+                allow endless transaction that would bloat CHAREDCOIN and make it unusable. To
                 stop these kinds of attacks 1 in 10 successful transactions are charged. This
-                adds up to a cost of 0.001 GIANT per transaction on average.
+                adds up to a cost of 0.001 CHAREDCOIN per transaction on average.
             */
             if (r <= 10) {
                 LogPrintf("CDarksendPool::ChargeRandomFees -- charging random fees. %u\n", i);
@@ -1435,7 +1435,7 @@ bool CDarksendPool::DoAutomaticDenominating(bool fDryRun)
         // should have some additional amount for them
         nLowestDenom += DARKSEND_COLLATERAL * 4;
 
-    CAmount nBalanceNeedsAnonymized = nAnonymizeGIANTAmount * COIN - pwalletMain->GetAnonymizedBalance();
+    CAmount nBalanceNeedsAnonymized = nAnonymizeCHAREDCOINAmount * COIN - pwalletMain->GetAnonymizedBalance();
 
     // if balanceNeedsAnonymized is more than pool max, take the pool max
     if (nBalanceNeedsAnonymized > DARKSEND_POOL_MAX) nBalanceNeedsAnonymized = DARKSEND_POOL_MAX;
@@ -2287,7 +2287,7 @@ void ThreadCheckDarKsendPool()
     if (fLiteMode) return; //disable all Darksend/Masternode related functionality
 
     // Make this thread recognisable as the wallet flushing thread
-    RenameThread("giant-Darksend");
+    RenameThread("charedcoin-Darksend");
 
     unsigned int c = 0;
 

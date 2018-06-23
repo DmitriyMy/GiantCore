@@ -2,7 +2,7 @@
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers 
 // Copyright (c) 2015-2017 The ALQO developers
-// Copyright (c) 2018 The GIANT developers
+// Copyright (c) 2018 The CHAREDCOIN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -43,11 +43,11 @@ QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
     case GIC:
-        return QString("giant");
+        return QString("charedcoin");
     case mGIC:
-        return QString("mgiant");
+        return QString("mcharedcoin");
     case uGIC:
-        return QString::fromUtf8("ugiant");
+        return QString::fromUtf8("ucharedcoin");
     default:
         return QString("???");
     }

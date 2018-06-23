@@ -6,13 +6,13 @@ and tests weren't explicitly disabled.
 
 After configuring, they can be run with 'make check'.
 
-To run the giantd tests manually, launch src/test/test_giant .
+To run the charedcoind tests manually, launch src/test/test_charedcoin .
 
-To add more giantd tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
+To add more charedcoind tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
 .cpp files in the test/ directory or add new .cpp files that
 implement new BOOST_AUTO_TEST_SUITE sections.
 
-To run the giant-qt tests manually, launch src/qt/test/giant-qt_test
+To run the charedcoin-qt tests manually, launch src/qt/test/charedcoin-qt_test
 
-To add more giant-qt tests, add them to the `src/qt/test/` directory and
+To add more charedcoin-qt tests, add them to the `src/qt/test/` directory and
 the `src/qt/test/test_main.cpp` file.

@@ -3,7 +3,7 @@
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers 
 // Copyright (c) 2015-2017 The ALQO developers
-// Copyright (c) 2018 The GIANT developers
+// Copyright (c) 2018 The CHAREDCOIN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -43,7 +43,7 @@ using namespace boost;
 using namespace std;
 
 #if defined(NDEBUG)
-#error "GIANT cannot be compiled without assertions."
+#error "CHAREDCOIN cannot be compiled without assertions."
 #endif
 
 /**
@@ -97,7 +97,7 @@ static void CheckBlockIndex();
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "GIANT Signed Message:\n";
+const string strMessageMagic = "CHAREDCOIN Signed Message:\n";
 
 // Internal stuff
 namespace {
@@ -1992,7 +1992,7 @@ bool FindUndoPos(CValidationState& state, int nFile, CDiskBlockPos& pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("giant-scriptch");
+    RenameThread("charedcoin-scriptch");
     scriptcheckqueue.Thread();
 }
 

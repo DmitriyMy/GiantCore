@@ -3,7 +3,7 @@ Release Process
 
 Before every release candidate:
 
-* Update translations (ping Fuzzbawls on Slack) see [translation_process.md](https://github.com/GiantPay/GiantCore/blob/master/doc/translation_process.md#synchronising-translations).
+* Update translations (ping Fuzzbawls on Slack) see [translation_process.md](https://github.com/CharedCoinPay/CharedCoinCore/blob/master/doc/translation_process.md#synchronising-translations).
 
 Before every minor and major release:
 
@@ -24,12 +24,12 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/GiantPay/GiantCore.SIGS.git
-    git clone https://github.com/GiantPay/GiantCore-DETACHED.SIGS.git
+    git clone https://github.com/CharedCoinPay/CharedCoinCore.SIGS.git
+    git clone https://github.com/CharedCoinPay/CharedCoinCore-DETACHED.SIGS.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/GiantPay/GiantCore.git
+    git clone https://github.com/CharedCoinPay/CharedCoinCore.git
 
-### GIANT maintainers/release engineers, suggestion for writing release notes
+### CHAREDCOIN maintainers/release engineers, suggestion for writing release notes
 
 Write release notes. git shortlog helps a lot, for example:
 
@@ -50,7 +50,7 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 
 Setup Gitian descriptors:
 
-    pushd ./giant
+    pushd ./charedcoin
     export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
     export VERSION=(new version, e.g. 0.8.0)
     git fetch
@@ -84,7 +84,7 @@ Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, a
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
     pushd ./gitian-builder
-    make -C ../giant/depends download SOURCES_PATH=`pwd`/cache/common
+    make -C ../charedcoin/depends download SOURCES_PATH=`pwd`/cache/common
     popd
 
 Only missing files will be fetched, so this is safe to re-run for each build.
@@ -92,7 +92,7 @@ Only missing files will be fetched, so this is safe to re-run for each build.
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 
     pushd ./gitian-builder
-    ./bin/gbuild --url giant=/path/to/giant,signature=/path/to/sigs {rest of arguments}
+    ./bin/gbuild --url charedcoin=/path/to/charedcoin,signature=/path/to/sigs {rest of arguments}
     popd
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
@@ -100,42 +100,42 @@ The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 ### Build and sign ALQO Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
-    ./bin/gbuild --memory 3000 --commit giant=v${VERSION} ../giant/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../giant/contrib/gitian-descriptors/gitian-linux.yml
-    mv build/out/giant-*.tar.gz build/out/src/giant-*.tar.gz ../
+    ./bin/gbuild --memory 3000 --commit charedcoin=v${VERSION} ../charedcoin/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../charedcoin/contrib/gitian-descriptors/gitian-linux.yml
+    mv build/out/charedcoin-*.tar.gz build/out/src/charedcoin-*.tar.gz ../
 
-    ./bin/gbuild --memory 3000 --commit giant=v${VERSION} ../giant/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../giant/contrib/gitian-descriptors/gitian-win.yml
-    mv build/out/giant-*-win-unsigned.tar.gz inputs/giant-win-unsigned.tar.gz
-    mv build/out/giant-*.zip build/out/giant-*.exe ../
+    ./bin/gbuild --memory 3000 --commit charedcoin=v${VERSION} ../charedcoin/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../charedcoin/contrib/gitian-descriptors/gitian-win.yml
+    mv build/out/charedcoin-*-win-unsigned.tar.gz inputs/charedcoin-win-unsigned.tar.gz
+    mv build/out/charedcoin-*.zip build/out/charedcoin-*.exe ../
 
-    ./bin/gbuild --memory 3000 --commit giant=v${VERSION} ../giant/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../giant/contrib/gitian-descriptors/gitian-osx.yml
-    mv build/out/giant-*-osx-unsigned.tar.gz inputs/giant-osx-unsigned.tar.gz
-    mv build/out/giant-*.tar.gz build/out/giant-*.dmg ../
+    ./bin/gbuild --memory 3000 --commit charedcoin=v${VERSION} ../charedcoin/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../charedcoin/contrib/gitian-descriptors/gitian-osx.yml
+    mv build/out/charedcoin-*-osx-unsigned.tar.gz inputs/charedcoin-osx-unsigned.tar.gz
+    mv build/out/charedcoin-*.tar.gz build/out/charedcoin-*.dmg ../
     popd
 
 Build output expected:
 
-  1. source tarball (`giant-${VERSION}.tar.gz`)
-  2. linux 32-bit and 64-bit dist tarballs (`giant-${VERSION}-linux[32|64].tar.gz`)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (`giant-${VERSION}-win[32|64]-setup-unsigned.exe`, `giant-${VERSION}-win[32|64].zip`)
-  4. OS X unsigned installer and dist tarball (`giant-${VERSION}-osx-unsigned.dmg`, `giant-${VERSION}-osx64.tar.gz`)
+  1. source tarball (`charedcoin-${VERSION}.tar.gz`)
+  2. linux 32-bit and 64-bit dist tarballs (`charedcoin-${VERSION}-linux[32|64].tar.gz`)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (`charedcoin-${VERSION}-win[32|64]-setup-unsigned.exe`, `charedcoin-${VERSION}-win[32|64].zip`)
+  4. OS X unsigned installer and dist tarball (`charedcoin-${VERSION}-osx-unsigned.dmg`, `charedcoin-${VERSION}-osx64.tar.gz`)
   5. Gitian signatures (in `gitian.sigs/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
 Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 
-    gpg --import giant/contrib/gitian-keys/*.pgp
+    gpg --import charedcoin/contrib/gitian-keys/*.pgp
     gpg --refresh-keys
 
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../giant/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../giant/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../giant/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../charedcoin/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../charedcoin/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../charedcoin/contrib/gitian-descriptors/gitian-osx.yml
     popd
 
 ### Next steps:
@@ -156,22 +156,22 @@ Codesigner only: Create Windows/OS X detached signatures:
 
 Codesigner only: Sign the osx binary:
 
-    transfer giant-osx-unsigned.tar.gz to osx for signing
-    tar xf giant-osx-unsigned.tar.gz
+    transfer charedcoin-osx-unsigned.tar.gz to osx for signing
+    tar xf charedcoin-osx-unsigned.tar.gz
     ./detached-sig-create.sh -s "Key ID"
     Enter the keychain password and authorize the signature
     Move signature-osx.tar.gz back to the gitian host
 
 Codesigner only: Sign the windows binaries:
 
-    tar xf giant-win-unsigned.tar.gz
+    tar xf charedcoin-win-unsigned.tar.gz
     ./detached-sig-create.sh -key /path/to/codesign.key
     Enter the passphrase for the key when prompted
     signature-win.tar.gz will be created
 
 Codesigner only: Commit the detached codesign payloads:
 
-    cd ~/giant-detached-sigs
+    cd ~/charedcoin-detached-sigs
     checkout the appropriate branch for this release series
     rm -rf *
     tar xf signature-osx.tar.gz
@@ -184,25 +184,25 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [giant-detached-sigs](https://github.com/GiantPay/GiantCore) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [charedcoin-detached-sigs](https://github.com/CharedCoinPay/CharedCoinCore) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../giant/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../giant/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../giant/contrib/gitian-descriptors/gitian-osx-signer.yml
-    mv build/out/giant-osx-signed.dmg ../giant-${VERSION}-osx.dmg
+    ./bin/gbuild -i --commit signature=v${VERSION} ../charedcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../charedcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../charedcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    mv build/out/charedcoin-osx-signed.dmg ../charedcoin-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../giant/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../giant/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../giant/contrib/gitian-descriptors/gitian-win-signer.yml
-    mv build/out/giant-*win64-setup.exe ../giant-${VERSION}-win64-setup.exe
-    mv build/out/giant-*win32-setup.exe ../giant-${VERSION}-win32-setup.exe
+    ./bin/gbuild -i --commit signature=v${VERSION} ../charedcoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../charedcoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../charedcoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    mv build/out/charedcoin-*win64-setup.exe ../charedcoin-${VERSION}-win64-setup.exe
+    mv build/out/charedcoin-*win32-setup.exe ../charedcoin-${VERSION}-win32-setup.exe
     popd
 
 Commit your signature for the signed OS X/Windows binaries:
@@ -224,23 +224,23 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-giant-${VERSION}-aarch64-linux-gnu.tar.gz
-giant-${VERSION}-arm-linux-gnueabihf.tar.gz
-giant-${VERSION}-i686-pc-linux-gnu.tar.gz
-giant-${VERSION}-x86_64-linux-gnu.tar.gz
-giant-${VERSION}-osx64.tar.gz
-giant-${VERSION}-osx.dmg
-giant-${VERSION}.tar.gz
-giant-${VERSION}-win32-setup.exe
-giant-${VERSION}-win32.zip
-giant-${VERSION}-win64-setup.exe
-giant-${VERSION}-win64.zip
+charedcoin-${VERSION}-aarch64-linux-gnu.tar.gz
+charedcoin-${VERSION}-arm-linux-gnueabihf.tar.gz
+charedcoin-${VERSION}-i686-pc-linux-gnu.tar.gz
+charedcoin-${VERSION}-x86_64-linux-gnu.tar.gz
+charedcoin-${VERSION}-osx64.tar.gz
+charedcoin-${VERSION}-osx.dmg
+charedcoin-${VERSION}.tar.gz
+charedcoin-${VERSION}-win32-setup.exe
+charedcoin-${VERSION}-win32.zip
+charedcoin-${VERSION}-win64-setup.exe
+charedcoin-${VERSION}-win64.zip
 ```
 The `*-debug*` files generated by the gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
 in debugging can run gitian to generate the files for themselves. To avoid
 end-user confusion about which file to pick, as well as save storage
-space *do not upload these to the http://bit.giants/ server*.
+space *do not upload these to the http://bit.charedcoins/ server*.
 
 - GPG-sign it, delete the unsigned file:
 ```
@@ -256,7 +256,7 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
   - bitcointalk announcement thread
 
-  - Optionally twitter, reddit /r/giant, ... but this will usually sort out itself
+  - Optionally twitter, reddit /r/charedcoin, ... but this will usually sort out itself
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 

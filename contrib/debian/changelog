@@ -365,8 +365,8 @@ bitcoin (0.3.19~dfsg-5) unstable; urgency=low
 bitcoin (0.3.19~dfsg-4) unstable; urgency=low
 
   [ Micah Anderson ]
-  * Provide example giant.conf.
-  * Add bitcoind(1) and giant.conf(5) man pages.
+  * Provide example charedcoin.conf.
+  * Add bitcoind(1) and charedcoin.conf(5) man pages.
 
   [ Jonas Smedegaard ]
   * Ease backporting:

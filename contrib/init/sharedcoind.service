@@ -1,0 +1,26 @@
+[Unit]
+Description=CHAREDCOIN's distributed currency daemon
+After=network.target
+
+[Service]
+User=charedcoin
+Group=charedcoin
+
+Type=forking
+PIDFile=/var/lib/charedcoind/charedcoind.pid
+
+ExecStart=/usr/bin/charedcoind -daemon -pid=/var/lib/charedcoind/charedcoind.pid \
+          -conf=/etc/charedcoin/charedcoin.conf -datadir=/var/lib/charedcoind
+
+ExecStop=-/usr/bin/charedcoin-cli -conf=/etc/charedcoin/charedcoin.conf \
+         -datadir=/var/lib/charedcoind stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

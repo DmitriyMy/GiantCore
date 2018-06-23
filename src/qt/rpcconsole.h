@@ -91,7 +91,7 @@ public slots:
     void showPeers();
     /** Switch to wallet-repair tab and show */
     void showRepair();
-    /** Open external (default) editor with giant.conf */
+    /** Open external (default) editor with charedcoin.conf */
     void showConfEditor();
     /** Open external (default) editor with masternode.conf */
     void showMNConfEditor();
