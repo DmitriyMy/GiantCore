@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=CHAREDCOIN
+Comment=CHAREDCOIN P2P Cryptocurrency
+Exec=charedcoin-qt %u
+Terminal=false
+Type=Application
+Icon=charedcoin128
+MimeType=x-scheme-handler/charedcoin;
+Categories=Office;Finance;
+Name[ru_RU]=sharedcoin-qt.desktop
